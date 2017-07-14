@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Mascotas</string>
+    <string name="menu_contacto">Contacto</string>
+    <string name="menu_acercade">Acerca de </string>
+    <string name="acercade_nombre">Cristian</string>
+    <string name="acercade_descripcion">Desarrollador de Software</string>
+    <string name="acercade_anio">2017</string>
+    <string name="acercade_derechos">Coursera</string>
+    <string name="ddeveloper">Desarrollado por:</string>
+    <string name="descripcion">descripcion:</string>
+    <string name="hint_nombre">Nombre</string>
+    <string name="hint_correo">Correo</string>
+    <string name="hint_mensaje">Mensaje</string>
+    <string name="boton_enviarmensaje">Enviar Mensaje</string>
+    <string name="hello_blank_fragment">Vacio</string>
+    <string name="nombre_mascota_perfil">Panfilo</string>
+    <string name="contactar">Contacto</string>
+</resources>
