@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.Properties;
 
@@ -37,6 +38,7 @@ public class ContactoEnviarCorreo extends AppCompatActivity {
         edtCorreo = (EditText) findViewById(R.id.edtCorreo);
         edtMensaje = (EditText) findViewById(R.id.edtMensaje);
         btnEnviarCorreo = (Button) findViewById(R.id.btnEnviarCorreo);
+
         correo ="prueba.coursera.cris@gmail.com";
         contraseña ="Axios1311";
 
@@ -48,11 +50,13 @@ public class ContactoEnviarCorreo extends AppCompatActivity {
                 StrictMode.setThreadPolicy(policy);
 
                 Properties propiedades = new Properties();
-                propiedades.put("mail.smtp.host","smtp.gmail.com");
-                propiedades.put("mail.smtp.socketFactory.port","465");
-                propiedades.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
-                propiedades.put("mail.smtp.auth","true");
-                propiedades.put("mail.smtp.port","465");
+
+                propiedades.put("mail.smtp.host", "smtp.gmail.com");
+                propiedades.put("mail.smtp.socketFactory.port", "465");
+                propiedades.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+                propiedades.put("mail.smtp.auth", "true");
+                propiedades.put("mail.smtp.port", "465");
+
 
                 try {
                     sesion = Session.getDefaultInstance(propiedades, new Authenticator() {
@@ -69,12 +73,16 @@ public class ContactoEnviarCorreo extends AppCompatActivity {
                         mensaje.setRecipients(Message.RecipientType.TO,InternetAddress.parse(edtCorreo.getText().toString()));
                         mensaje.setContent(edtMensaje.getText().toString(),"text/html; charset=utf-8");
                         Transport.send(mensaje);
+
+                        Toast.makeText(ContactoEnviarCorreo.this, "Correo enviado ", Toast.LENGTH_SHORT).show();
+
                     }
 
                 }
                 catch (Exception e)
                 {
                     e.printStackTrace();
+                    Toast.makeText(ContactoEnviarCorreo.this, "Error al enviar el correo, favor de contactar al desarrollador ", Toast.LENGTH_SHORT).show();
                 }
             }
         });
